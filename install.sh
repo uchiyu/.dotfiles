@@ -1,18 +1,18 @@
 #!/bin/bash
 
 #tmux
-ln -si ~/.dotfiles/.tmux.conf ~/
+ln -sin ~/.dotfiles/.tmux.conf ~/
 
 #zsh
-ln -si ~/.dotfiles/.zshrc ~/
+ln -sin ~/.dotfiles/.zshrc ~/
 source ~/.zshrc
 
 #emacs
 cd ~
 git clone https://github.com/uchiyu/.emacs.d.git
-ln -si ~/.emacs.d/init.el ~/
+ln -sin ~/.emacs.d/init.el ~/
 
 #vim
 cd ~
 git clone https://github.com/uchiyu/.vim.git
-ln -si ~/.vim/.vimrc ~/
+ln -sin ~/.vim/.vimrc ~/
