@@ -132,52 +132,6 @@ setopt list_types              # 補完候補にファイルの種類も表示する
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
-#=======================================================================
-# 高速なディレクトリ移動 
-#  http://qiita.com/maxmellon/items/23325c22581e9187639e
-#=======================================================================
-#-----------------------------------------------------------------------
-#zshのhistoryとpecoの連携
-#function peco-select-history() {
-#    local tac
-#    if which tac > /dev/null; then
-#        tac="tac"
-#    else
-#        tac="tail -r"
-#    fi
-#
-#    BUFFER=$(\history -n 1 | \
-#        eval $tac | \
-#        peco --query "$LBUFFER")
-#    CURSOR=$#BUFFER
-#    zle clear-screen
-#}
-#zle -N peco-select-history
-#bindkey '^r' peco-select-history
-#
-## ユーザーディレクトリ内にインストールした場合はPATHを設定
-#PATH=$PATH:~/local/bin/
-#export PATH=$PATH:~/local/bin/
-#
-##-----------------------------------------------------------------------
-##ディレクトリ移動に際しての設定
-#function peco-z-search
-#{
-#  which peco z > /dev/null
-#  if [ $? -ne 0 ]; then
-#    echo "Please install peco and z"
-#    return 1
-#  fi
-#  local res=$(z | sort -rn | cut -c 12- | peco)
-#  if [ -n "$res" ]; then
-#    BUFFER+="cd $res"
-#    zle accept-line
-#  else
-#    return 1
-#  fi
-#}
-#zle -N peco-z-search
-#bindkey '^f' peco-z-search
-
-source ~/.zsh.d/z.sh
+# bundle execを使わない設定
+which direnv > /dev/null && eval "$(direnv hook zsh)"
 
