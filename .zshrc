@@ -1,95 +1,95 @@
 #=======================================================================
-#$B4pK\@_Dj(B
+#基本設定
 #=======================================================================
-# $B4D6-JQ?t(B
+# 環境変数
 export LANG=ja_JP.UTF-8
 
 #-----------------------------------------------------------------------
-#$B?':L4XO"$N@_Dj(B
+#色彩関連の設定
 #-----------------------------------------------------------------------
-# $B?'$r;HMQ=PMh$k$h$&$K$9$k(B
+# 色を使用出来るようにする
 autoload colors
 colors
 
 ### Ls Color ###
-# $B?'$N@_Dj(B
+# 色の設定
 ### Prompt ####
-# 2$B9TI=<((B
+# 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m] %{${fg[cyan]}%}%~
 %{${reset_color}%}%# "
-# vim/emacs$B%-!<%P%$%s%I$K$9$k(B
+# vim/emacsキーバインドにする
 bindkey -v #-e
 
 #--------------------------------------------------
-# $B%R%9%H%j$N@_Dj(B
+# ヒストリの設定
 #--------------------------------------------------
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-setopt bang_hist          # !$B$r;H$C$?%R%9%H%jE83+$r9T$&(B(d)
-setopt extended_history   # $B%R%9%H%j$K<B9T;~4V$bJ]B8$9$k(B
-setopt hist_ignore_dups   # $BD>A0$HF1$8%3%^%s%I$O%R%9%H%j$KDI2C$7$J$$(B
-setopt share_history      # $BB>$N%7%'%k$N%R%9%H%j$r%j%"%k%?%$%`$G6&M-$9$k(B
-setopt hist_reduce_blanks # $BM>J,$J%9%Z!<%9$r:o=|$7$F%R%9%H%j$KJ]B8$9$k(B
-# $B%^%C%A$7$?%3%^%s%I$N%R%9%H%j$rI=<($G$-$k$h$&$K$9$k(B
+setopt bang_hist          # !を使ったヒストリ展開を行う(d)
+setopt extended_history   # ヒストリに実行時間も保存する
+setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
+# マッチしたコマンドのヒストリを表示できるようにする
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# $B$9$Y$F$N%R%9%H%j$rI=<($9$k(B
+# すべてのヒストリを表示する
 function history-all { history -E 1 }
 
 #--------------------------------------------------
-# $B%*%W%7%g%s(B
-# $BF|K\8l%U%!%$%kL>$rI=<(2DG=$K$9$k(B
+# オプション
+# 日本語ファイル名を表示可能にする
 setopt print_eight_bit
  
-# beep $B$rL58z$K$9$k(B
+# beep を無効にする
 setopt no_beep
  
-# $B%U%m!<%3%s%H%m!<%k$rL58z$K$9$k(B
+# フローコントロールを無効にする
 setopt no_flow_control
  
-# Ctrl+D$B$G(Bzsh$B$r=*N;$7$J$$(B
+# Ctrl+Dでzshを終了しない
 setopt ignore_eof
  
-# '#' $B0J9_$r%3%a%s%H$H$7$F07$&(B
+# '#' 以降をコメントとして扱う
 setopt interactive_comments
  
-# $B%G%#%l%/%H%jL>$@$1$G(Bcd$B$9$k(B
+# ディレクトリ名だけでcdする
 setopt auto_cd
  
-# cd $B$7$?$i<+F0E*$K(Bpushd$B$9$k(B
+# cd したら自動的にpushdする
 setopt auto_pushd
-# $B=EJ#$7$?%G%#%l%/%H%j$rDI2C$7$J$$(B
+# 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
  
-# $BF1;~$K5/F0$7$?(Bzsh$B$N4V$G%R%9%H%j$r6&M-$9$k(B
+# 同時に起動したzshの間でヒストリを共有する
 setopt share_history
  
-# $BF1$8%3%^%s%I$r%R%9%H%j$K;D$5$J$$(B
+# 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
  
-# $B%9%Z!<%9$+$i;O$^$k%3%^%s%I9T$O%R%9%H%j$K;D$5$J$$(B
+# スペースから始まるコマンド行はヒストリに残さない
 setopt hist_ignore_space
  
-# $B%R%9%H%j$KJ]B8$9$k$H$-$KM>J,$J%9%Z!<%9$r:o=|$9$k(B
+# ヒストリに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
  
-# $B9b5!G=$J%o%$%k%I%+!<%IE83+$r;HMQ$9$k(B
+# 高機能なワイルドカード展開を使用する
 setopt extended_glob
  
 #--------------------------------------------------
-# $B%-!<%P%$%s%I(B
+# キーバインド
  
-# ^R $B$GMzNr8!:w$r$9$k$H$-$K(B * $B$G%o%$%k%I%+!<%I$r;HMQ=PMh$k$h$&$K$9$k(B
+# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
  
 #--------------------------------------------------
-# $B%(%$%j%"%9(B
+# エイリアス
 
 alias la='ls -a'
 alias ll='ls -l'
@@ -99,39 +99,39 @@ alias cd....='cd ../../../'
 
 alias v='vim'
  
-# sudo $B$N8e$N%3%^%s%I$G%(%$%j%"%9$rM-8z$K$9$k(B
+# sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
  
-# $B%0%m!<%P%k%(%$%j%"%9(B
+# グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
 
 #=======================================================================
-#$BJd405!G=$N@_Dj(B
+#補完機能の設定
 #=======================================================================
-# $BJd405!G=$rM-8z$K$9$k(B
+# 補完機能を有効にする
 autoload -Uz compinit
 compinit
 
-# $BJd40$G>.J8;z$G$bBgJ8;z$K%^%C%A$5$;$k(B
+# 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
  
-# ../ $B$N8e$O:#$$$k%G%#%l%/%H%j$rJd40$7$J$$(B
+# ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
  
-# sudo $B$N8e$m$G%3%^%s%IL>$rJd40$9$k(B
+# sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 ### Complement ###
-autoload -U compinit; compinit # $BJd405!G=$rM-8z$K$9$k(B
-setopt auto_list               # $BJd408uJd$r0lMw$GI=<($9$k(B(d)
-setopt auto_menu               # $BJd40%-!<O"BG$GJd408uJd$r=g$KI=<($9$k(B(d)
-setopt list_packed             # $BJd408uJd$r$G$-$k$@$15M$a$FI=<($9$k(B
-setopt list_types              # $BJd408uJd$K%U%!%$%k$N<oN`$bI=<($9$k(B
-bindkey "^[[Z" reverse-menu-complete  # Shift-Tab$B$GJd408uJd$r5U=g$9$k(B("\e[Z"$B$G$bF0:n$9$k(B)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # $BJd40;~$KBgJ8;z>.J8;z$r6hJL$7$J$$(B
+autoload -U compinit; compinit # 補完機能を有効にする
+setopt auto_list               # 補完候補を一覧で表示する(d)
+setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
+setopt list_packed             # 補完候補をできるだけ詰めて表示する
+setopt list_types              # 補完候補にファイルの種類も表示する
+bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
-# bundle exec$B$r;H$o$J$$@_Dj(B
+# bundle execを使わない設定
 which direnv > /dev/null && eval "$(direnv hook zsh)"
 
