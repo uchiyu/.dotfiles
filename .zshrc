@@ -90,21 +90,22 @@ bindkey '^R' history-incremental-pattern-search-backward
  
 #--------------------------------------------------
 # エイリアス
-
 alias la='ls -a'
 alias ll='ls -l'
 alias mkdir='mkdir -p'
 alias cd...='cd ../../'
 alias cd....='cd ../../../'
 
-alias v='vim'
- 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
  
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
+
+# vimの設定
+alias v='vim'
+alias vf='vim +VimFiler'
 
 #=======================================================================
 #補完機能の設定
