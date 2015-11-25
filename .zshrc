@@ -3,6 +3,7 @@
 #=======================================================================
 # 環境変数
 export LANG=ja_JP.UTF-8
+export PATH=$HOME/local/bin:$PATH
 
 #-----------------------------------------------------------------------
 #色彩関連の設定
@@ -95,6 +96,10 @@ alias ll='ls -l'
 alias mkdir='mkdir -p'
 alias cd...='cd ../../'
 alias cd....='cd ../../../'
+
+# javacの文字化け防止
+alias javac='javac -J-Dfile.encoding=UTF-8'
+alias java='java -Dfile.encoding=UTF-8'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
