@@ -6,4 +6,4 @@ chsh -s /bin/zsh
 exec $SHELL -l
 
 # load zshrc
-source .zshrc
+source ~/.zshrc
