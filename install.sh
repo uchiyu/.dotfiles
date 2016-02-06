@@ -15,5 +15,4 @@ ln -sin ~/.emacs.d/init.el ~/
 #vim
 cd ~
 git clone https://github.com/uchiyu/.vim.git
-ln -sin ~/.vim/.vimrc ~/
 sh ~/.vim/install.sh
