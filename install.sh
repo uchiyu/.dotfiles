@@ -5,7 +5,6 @@ ln -sin ~/.dotfiles/.tmux.conf ~/
 
 #zsh
 ln -sin ~/.dotfiles/.zshrc ~/
-source ~/.zshrc
 
 #emacs
 cd ~
