@@ -1,15 +1,15 @@
 #!/bin/bash
 
 #tmux
-ln -sin ~/.dotfiles/.tmux.conf ~/
+ln -s -f ~/.dotfiles/.tmux.conf ~/
 
 #zsh
-ln -sin ~/.dotfiles/.zshrc ~/
+ln -s -f ~/.dotfiles/.zshrc ~/
 
 #emacs
 cd ~
 git clone https://github.com/uchiyu/.emacs.d.git
-ln -sin ~/.emacs.d/init.el ~/
+ln -s -f ~/.emacs.d/init.el ~/
 
 #vim
 cd ~
