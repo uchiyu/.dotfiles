@@ -10,6 +10,7 @@ ln -s -f ~/.dotfiles/.zshrc ~/
 cd ~
 dir=~/.emacs.d
 if [ -e $dir ]; then
+  cd ~/.emacs.d
   git pull origin master
 else
   git clone https://github.com/uchiyu/.emacs.d.git
@@ -18,8 +19,9 @@ fi
 
 #vim
 cd ~
-dir=~/.emacs.d
+dir=~/.vim
 if [ -e $dir ]; then
+  cd ~/.vim
   git pull origin master
 else
   git clone https://github.com/uchiyu/.vim.git
