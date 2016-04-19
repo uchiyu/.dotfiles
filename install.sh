@@ -23,7 +23,8 @@ dir=~/.vim
 if [ -e $dir ]; then
   cd ~/.vim
   git pull origin master
-  sh install.sh
 else
   git clone https://github.com/uchiyu/.vim.git
+  cd ~/.vim
 fi
+sh install.sh
