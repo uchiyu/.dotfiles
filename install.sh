@@ -28,3 +28,4 @@ else
   cd ~/.vim
 fi
 sh install.sh
+cd ~
