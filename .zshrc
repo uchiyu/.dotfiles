@@ -1,7 +1,7 @@
 #=======================================================================
 #基本設定
 #=======================================================================
-# 環境変数
+# 環境変数 パスの設定
 export LANG=ja_JP.UTF-8
 export PATH=$HOME/local/bin:$PATH
 
@@ -82,7 +82,10 @@ setopt hist_reduce_blanks
  
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
- 
+
+# コマンドミスを修正
+setopt correct
+
 #--------------------------------------------------
 # キーバインド
  
@@ -91,6 +94,8 @@ bindkey '^R' history-incremental-pattern-search-backward
  
 #--------------------------------------------------
 # エイリアス
+alias ls='ls --color=auto'
+alias ls -a='ls -a --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias mkdir='mkdir -p'
