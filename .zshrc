@@ -95,7 +95,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 #--------------------------------------------------
 # エイリアス
 alias ls='ls --color=auto'
-alias ls -a='ls -a --color=auto'
+alias 'ls -a'='ls -a --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias mkdir='mkdir -p'
