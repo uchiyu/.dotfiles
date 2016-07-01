@@ -70,10 +70,10 @@ setopt pushd_ignore_dups
  
 # 同時に起動したzshの間でヒストリを共有する
 setopt share_history
- 
+
 # 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
- 
+
 # スペースから始まるコマンド行はヒストリに残さない
 setopt hist_ignore_space
  
@@ -88,10 +88,27 @@ setopt correct
 
 #--------------------------------------------------
 # キーバインド
- 
+
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
- 
+
+# pecoで履歴の検索をスムーズに
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
 #--------------------------------------------------
 # エイリアス
 alias ls='ls --color=auto'
