@@ -118,6 +118,7 @@ alias ll='ls -l'
 alias mkdir='mkdir -p'
 alias cd...='cd ../../'
 alias cd....='cd ../../../'
+alias be='bundle exec'
 
 # javacの文字化け防止
 alias javac='javac -J-Dfile.encoding=UTF-8'
