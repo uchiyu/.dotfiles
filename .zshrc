@@ -219,3 +219,5 @@ function get-branch-status() {
     fi
     echo ${branchstatus}' '
 }
+
+source ~/.zshenv
