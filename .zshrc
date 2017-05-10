@@ -128,8 +128,8 @@ bindkey '^r' peco-select-history
 
 #--------------------------------------------------
 # エイリアス
-alias ls='ls --color=auto'
-alias 'ls -a'='ls -a --color=auto'
+#alias ls='ls --color=auto'
+alias 'ls -a'='ls -a -G'
 alias la='ls -a'
 alias ll='ls -l'
 alias mkdir='mkdir -p'
