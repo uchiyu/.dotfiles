@@ -12,3 +12,6 @@ password入力後、リログインし
 $ source ~/.zshrc
 ```
 履歴検索にpecoを使用しているためインストール
+```sh
+$ brew install peco
+```
