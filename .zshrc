@@ -209,13 +209,13 @@ function get-branch-status() {
     branchname=`get-branch-name`
     output=`${git} status 2> /dev/null`
     if [[ -n `echo $output | grep '^nothing to commit'` ]]; then
-        branchstatus='%{'${fg[green]}'%}⮂%{'${fg[black]}${bg[green]}'%} ⭠ '${branchname}
+        branchstatus='%{'${fg[green]}'%}%{'${fg[black]}${bg[green]}'%}  '${branchname}
     elif [[ -n `echo $output | grep '^Untracked files:'` ]]; then
-        branchstatus='%{'${fg[yellow]}'%}⮂%{'${fg[black]}${bg[yellow]}'%} ⭠ '${branchname}
+        branchstatus='%{'${fg[yellow]}'%}%{'${fg[black]}${bg[yellow]}'%}  '${branchname}
     elif [[ -n `echo $output | grep '^Changes not staged for commit:'` ]]; then
-        branchstatus='%{'${fg[red]}'%}⮂%{'${fg[black]}${bg[red]}'%} ⭠ '${branchname}
+        branchstatus='%{'${fg[red]}'%}%{'${fg[black]}${bg[red]}'%}  '${branchname}
     else
-        branchstatus='%{'${fg[cyan]}'%}⮂%{'${fg[black]}${bg[cyan]}'%} ⭠ '${branchname}
+        branchstatus='%{'${fg[cyan]}'%}%{'${fg[black]}${bg[cyan]}'%}  '${branchname}
     fi
     echo ${branchstatus}' '
 }
