@@ -126,6 +126,19 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# GOでのpecoの設定
+bindkey '^]' peco-src
+function peco-src() {
+
+  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd $selected_dir"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N peco-src
+
 #--------------------------------------------------
 # エイリアス
 #alias ls='ls --color=auto'
