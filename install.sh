@@ -25,6 +25,7 @@ if [ -e $dir ]; then
   git pull origin master
 else
   git clone https://github.com/uchiyu/.vim.git
+  ln -s -f ~/.vim/.vimrc ~/
   cd ~/.vim
 fi
 sh install.sh
