@@ -50,15 +50,15 @@ if [ -n "$transcript" ] && [ -f "$transcript" ]; then
   title="$(grep '"type":"ai-title"' "$transcript" 2>/dev/null | tail -1 | jq -r '.aiTitle // ""' 2>/dev/null)"
 fi
 
-# 1行目
+# 1行目: スレッドタイトル（あれば）
 if [ -n "$title" ]; then
   printf "📝 %s\n" "$title"
 fi
 
-# 2行目
+# 2行目: モデル / コスト / コンテキスト使用率
 printf "🤖 %s | 💰 $%s | ctx %s%% %s\n" \
   "$model" "$cost" "$ctx_used" "$(bar "$ctx_used")"
 
-# 2行目
+# 3行目: レート制限（5h / 7d）と残コンテキスト
 printf "⏳ 5h %s%% (%s left) | 📅 7d %s%% (%s left) | remain %s%%\n" \
   "$five_used" "$five_left" "$seven_used" "$seven_left" "$ctx_left"
