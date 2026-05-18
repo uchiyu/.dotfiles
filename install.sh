@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#claude
+mkdir -p ~/.claude
+ln -s -f ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+ln -s -f ~/.dotfiles/claude/statusline.sh ~/.claude/statusline.sh
+
 #tmux
 ln -s -f ~/.dotfiles/.tmux.conf ~/
 
